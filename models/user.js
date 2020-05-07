@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const Schema = mongoose.Schema;
+
+
 const usersSchema = new Schema(
   {
     name: {
@@ -30,7 +32,8 @@ const usersSchema = new Schema(
   },
   { timestamps: true }
 );
-userSchema.methods.generateAuthToken = async () => {
+
+usersSchema.methods.generateAuthToken = async () => {
   // Generate an auth token for the user
   const user = this;
   const token = jwt.sign({ _id: user._id }, "idmcalculus");
