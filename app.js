@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
+const PORT = process.env.PORT || 3000
 
 const app = express();
 
@@ -18,6 +19,6 @@ mongoose
   )
   .then(res => {
     console.log("Database connected");
-    app.listen(3000);
+    app.listen(PORT);
   })
   .catch(err => console.log(err));
